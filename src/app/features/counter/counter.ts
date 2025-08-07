@@ -16,7 +16,6 @@ import { CounterState } from './domain/counter.state';
 })
 export class Counter implements OnInit {
   private readonly store = inject(Store<CounterState>);
-  
   private readonly subscription = new Subscription();
 
   public ngOnInit(): void {
