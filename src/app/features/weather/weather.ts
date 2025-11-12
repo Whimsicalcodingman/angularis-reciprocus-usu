@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-weather',
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './weather.html',
-  styleUrl: './weather.scss'
+  styleUrl: './weather.scss',
 })
-export class Weather {
-
-}
+export class Weather {}

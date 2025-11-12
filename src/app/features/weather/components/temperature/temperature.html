@@ -1,0 +1,11 @@
+Get the latest weather updates:
+<form [formGroup]="formGroup">
+  <input placeholder="Choose a city" type="text" formControlName="location" />
+  <button type="button" (click)="getWeather()">Get weather</button>
+</form>
+@for(weather of dailyTemperatures$ | async; track weather.date) {
+<p>
+  {{ weather.location }}: {{ weather.date | date }} -
+  {{ weather.temperature | number : "1.0-1" }}°C
+</p>
+}
