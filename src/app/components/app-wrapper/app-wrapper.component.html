@@ -1,0 +1,21 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" opened="true">
+    <p>Auto-resizing sidenav</p>
+    @if (showFiller) {
+      <p>Lorem, ipsum dolor sit amet consectetur.</p>
+    }
+    <button (click)="showFiller = !showFiller" matButton="elevated">
+      Toggle extra text
+    </button>
+    
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button type="button" matButton (click)="drawer.toggle()">
+      Toggle sidenav Main content
+    </button>
+    <img src="../assets/logo/apollo-logo-v2.svg" height="100" />
+    <p>Congratulations! Your app is running. 🎉</p>
+    <router-outlet />
+  </div>
+</mat-drawer-container>

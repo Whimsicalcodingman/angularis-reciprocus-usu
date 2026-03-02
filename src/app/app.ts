@@ -1,14 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
+import { Component, signal, } from '@angular/core';
+import { StoreModule, } from '@ngrx/store';
 
-import { Counter } from './features/counter/counter';
+import { AppWrapperComponent, } from './components/app-wrapper/app-wrapper.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Counter, StoreModule],
+  imports: [AppWrapperComponent, StoreModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('ngrxPractice');

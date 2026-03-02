@@ -1,11 +1,18 @@
 Get the latest weather updates:
 <form [formGroup]="formGroup">
-  <input placeholder="Choose a city" type="text" formControlName="location" />
+  <mat-form-field>
+  <input matInput type="text" placeholder="Choose a city" type="text" formControlName="location" [matAutocomplete]="auto" />
+  <mat-autocomplete #auto="matAutocomplete">
+      @for (option of filteredOptions$ | async; track option) {
+        <mat-option [value]="option">{{option}}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
   <button type="button" (click)="getWeather()">Get weather</button>
 </form>
-@for(weather of dailyTemperatures$ | async; track weather.date) {
-<p>
-  {{ weather.location }}: {{ weather.date | date }} -
-  {{ weather.temperature | number : "1.0-1" }}°C
-</p>
+@for (weather of dailyTemperatures$ | async; track weather.date) {
+  <p>
+    {{ weather.location }}: {{ weather.date | date }} -
+    {{ weather.temperature | number: "1.0-1" }}°C
+  </p>
 }
